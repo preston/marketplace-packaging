@@ -24,7 +24,7 @@
         "environment": [{
             "key": "OPENTELEMETRY_COLLECTOR_URL",
             "required": true,
-            "description": "Graphite requires otel for billing, analytics, and product improvement."
+            "description": "OpenTelemetry endpoint for billing, metrics, logging, and product improvement."
         }]
     }]
 }
