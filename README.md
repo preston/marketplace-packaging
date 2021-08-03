@@ -12,7 +12,8 @@ The technological portion of Marketplace-compliant "product packaging" boils dow
 * SMART-on-FHIR applications and other software to auto-bind certain configuration parameters specific to the target environment.
 * Agnosticism to orchestration platform with no presumption of the specific features of Swarm, Kubernetes, OpenShift etc, such that a product can be distributed to all manner of mainstream runtime environments.
 * Every software (or content) product be deployable automatically in a "zero configuration required" philosophy.
-* Marketplace implementations can only generate stack configurations, e.g. via docker-compose.yml, kompose and other orchestration files, if the required configuration parameters can be resolved "just in time" against capabilities of the runtime environment. 
+* "Just in time" configuration resolution but with advance runtime platform compatibility checking prior to the application of changes.  
+* Platform implementations to account for the idiosynchrasies of specific mesh orchestration technologies that cannot be addressed at the Marketplace level.
 
 # Examples
 ## Static Content Products
