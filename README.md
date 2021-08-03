@@ -27,12 +27,15 @@ SoF (SMART-on-FHIR) applications and other software backed by a FHIR requires th
 # Deploying
 
 The files in this project are distributed in pre-built containers. A recent copy is provided at:
+
     https://marketplace-packaging.logicahealth.org
 
 To build your own:
+
     docker build -t p3000/marketplace-packaging:latest .
 
 To run your own at http://localhost:8080
+
     docker run -it --rm -p 8080:80 p3000/marketplace-packaging:latest
 
 # Attribution
