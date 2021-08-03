@@ -1,0 +1,81 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://marketplace-schema.prestonlee.com/build.json",
+    "title": "Marketplace Product Build Metadata Schema for Applications and Content",
+    "description": "The SoF product metadata file used by Graphite Marketplace and all marketplaces compliant with HL7 Marketplace product packaging specifications",
+    "type": "object",
+    "required": [
+        "marketplace_url",
+        "product",
+        "tasks"
+    ],
+    "properties": {
+        "marketplace_url": {
+            "type": "string",
+            "description": "Root endpoint used for resolving references as well as runtime product authorization."
+        },
+        "product": {
+            "type": "object",
+            "description": "Reference to the product definition as already registered at the referenced marketplace URL.",
+            "required": [
+                "uuid",
+                "build"
+            ],
+            "properties": {
+                "uuid": {
+                    "type": "string",
+                    "description": "The public UUID assigned to the product as registered with the referenced marketplace."
+                },
+                "build": {
+                    "required": [
+                        "uuid",
+                        "dependency"
+                    ],
+                    "type": "object",
+                    "properties": {
+                        "uuid": {
+                            "type": "string",
+                            "description": "Random, permanent, public UUIDv4 for this build."
+                        },
+                        "binary": {
+                            "type": "object",
+                            "required": [
+                                "registry",
+                                "image"
+                            ],
+                            "properties": {
+                                "registry": {
+                                    "type": "string",
+                                    "description": "OCI image registry, if different from the default."
+                                },
+                                "image": {
+                                    "type": "string",
+                                    "description": "OCI 'repository/image:label' string of the build."
+                                },
+                                "hash": {
+                                    "type": "string",
+                                    "description": "OCI hash computed from the build."
+                                }
+                            }
+                        },
+                        "dependency": {
+                            "type": "array",
+                            "description": "Optional set of runtime dependencies.",
+                            "items": {
+                                "$ref": "./dependency.json"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "tasks": {
+            "type": "array",
+            "description": "Set of runtime tasks necessary to run this product build.",
+            "minItems": 1,
+            "items": {
+                "$ref": "./task.json"
+            }
+        }
+    }
+}

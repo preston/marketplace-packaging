@@ -1,0 +1,41 @@
+{
+    "$schema": "../schema/build.json",
+    "marketplace_url": "https://marketplace-server.logicahealth.org",
+    "product": {
+        "uuid": "bc0e9854-7de2-48a7-9de2-f1b481b477b8",
+        "build": {
+            "uuid": "5d49a845-1f0b-4e87-82ee-d45fff86a4d1",
+            "binary": {
+                "registry": "https://index.docker.io/v1/",
+                "image": "p3000/graphite-example-smart:latest"
+            },
+            "dependency": []
+        }
+    },
+    "tasks": [{
+        "label": "My SMART Application",
+        "memory_minimum": 128,
+        "memory_maximum": 256,
+        "instances_minimum": 1,
+        "ports": [
+            80
+        ],
+        "environment": [{
+                "key": "OPENTELEMETRY_COLLECTOR_URL",
+                "required": true,
+                "description": "Graphite requires otel for billing, analytics, and product improvement."
+            },
+            {
+                "key": "CLIENT_ID",
+                "required": true,
+                "description": "OAuth 2 client ID for SMART user authentication and authorization."
+            },
+            {
+                "key": "CLIENT_SCOPES",
+                "required": true,
+                "default": "launch patient/Patient.read patient/Observation.read patient/Observation.write",
+                "description": "OAuth 2 client ID scopes for SMART fine-grained authorization."
+            }
+        ]
+    }]
+}
