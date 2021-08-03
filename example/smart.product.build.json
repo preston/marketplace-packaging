@@ -7,7 +7,7 @@
             "uuid": "5d49a845-1f0b-4e87-82ee-d45fff86a4d1",
             "binary": {
                 "registry": "https://index.docker.io/v1/",
-                "image": "p3000/graphite-example-smart:latest"
+                "image": "p3000/marketplace-product-build-example-smart-on-fhir:latest"
             },
             "dependency": []
         }
