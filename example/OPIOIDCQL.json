@@ -1,0 +1,153 @@
+{
+    "$schema": "../schema/productLabel.json",
+    "marketplace_url": "https://marketplace-server.logicahealth.org",
+    "product": {
+        "uuid": "bc0e9854-7de2-48a7-9de2-f1b481b477b8",
+        "build": {
+            "uuid": "5d49a845-1f0b-4e87-82ee-d45fff86a4d1",
+            "binary": {
+                "registry": "https://index.docker.io/v1/",
+                "image": "p3000/marketplace-product-build-example-static-content:latest"
+            },
+            "dependency": []
+        },
+        "ProductFacts": {
+            "name": "Opioid Prescribing Support Implementation Guide",
+            "company": [
+                "Centers for Disease Control and Prevention (CDC)",
+                "Office of the National Coordinator for Health IT (ONC) "
+            ],
+            "stewards": [
+                {
+                    "name": "Centers for Disease Control and Prevention (CDC)",
+                    "role": "endorsement"
+                },
+                {
+                    "name": "Office of the National Coordinator for Health IT (ONC)",
+                    "role": "endorsement"
+                }
+            ],
+            "Licensing": [
+                {
+                    "license": "Creative Commons license",
+                    
+                    "terms": "https://github.com/cqframework/opioid-cds/blob/master/LICENSE.md"
+                }
+            ],
+            "Usage Terms": [
+                {
+                    "usage": "Usage Charge",                    
+                    "terms": "None"
+                }
+            ],
+            "technologyType": "CQL",
+            "domain": [
+                "Clinical Decision Support",
+                "Prescribing Opioids"
+            ],
+            "cybersecurity": [
+                {
+                    "type": "cybersecuritytype1",
+                    
+                    "terms": "securityterms1"
+                }
+            ],
+            "customerService": [
+                {
+                    "service": "listserve",
+                    
+                    "terms": "https://chat.fhir.org/#narrow/stream/179220-cql"
+                }
+            ],
+            "dataAccess": [
+                {
+                    "name": "FHIR R4"
+                    
+                },
+                {
+                    "name": "OMTKData Library Opioid Management Terminology Knowledge (OMTK) Data Library"
+                    
+                },
+                {
+                    "name": "OMTKLogic Library Opioid Management Terminology Knowledge (OMTK) Logic Library"
+                    
+                },
+                {
+                    "name": "OpioidCDS_Common Library Opioid Common Library"
+                    
+                },
+                {
+                    "name": "OpioidCDS_REC_10_Patient_View Library Opioid Recommendation #10 (Patient View Version) Library"
+                    
+                },
+                {
+                    "name": "OpioidCDS_REC_11_Patient_View Library Opioid Recommendation #11 (Patient View Version) Library"
+                    
+                },
+                {
+                    "name": "PlanDefinition_Recommendation_10_Patient_View (v0.1.0) PlanDefinition Opioid Recommendation #10 (Patient View Version) PlanDefinition"
+                    
+                },
+                {
+                    "name": "PlanDefinition_Recommendation_11_Patient_view (v0.1.0) PlanDefinition Opioid Recommendation #11 (Patient View Version) PlanDefinition"
+                    
+                },
+                {
+                    "name": "Terminologies ValueSet Value sets referenced by the CQL in the Opioid Logic recommendations"
+                    
+                }
+            ],
+            "identifyAndAccessManagement": [
+                {
+                    "name": "NONE"
+                    
+                }
+            ],
+            "runtimeDependencies": [
+                {
+                    "name": "cqf-ruler"
+                    
+                }
+            ],
+            "networking" : [
+                {
+                    "name": "NONE",
+                    "url": "NONE"
+                    
+                }
+            ]
+        }
+    },
+    "tasks": [
+        {
+            "label": "Loading Content",
+            "options": [
+                "http://build.fhir.org/ig/cqframework/opioid-cds-r4/quick-start-bundles/opioid-cds-terminology-bundle.json",
+                "http://build.fhir.org/ig/cqframework/opioid-cds-r4/quick-start-bundles/opioid-cds-content-bundle.json"
+            ],
+        },
+        {
+            "label": "Logging",
+            "options": [
+                "hapi.fhir.cql_logging_enabled=true"
+            ]
+        },
+        {
+            "label": "Opioid Prescribing Support SMART on FHIR Application",
+            "memory_minimum": 128,
+            "memory_maximum": 256,
+            "instances_minimum": 1,
+            "options": [],
+            "ports": [
+                80
+            ],
+            "environment": [
+                {
+                    "key": "OPENTELEMETRY_COLLECTOR_URL",
+                    "required": true,
+                    "description": "OpenTelemetry endpoint for billing, metrics, logging, and product improvement."
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,507 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "marketplace_url": {
+      "type": "string",
+      "format": "uri"
+    },
+    "product": {
+      "type": "object",
+      "properties": {
+        "uuid": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "build": {
+          "type": "object",
+          "properties": {
+            "uuid": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "binary": {
+              "type": "object",
+              "properties": {
+                "registry": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "image": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "registry",
+                "image"
+              ]
+            },
+            "dependency": {
+              "type": "array",
+              "items": {}
+            }
+          },
+          "required": [
+            "uuid",
+            "binary",
+            "dependency"
+          ]
+        },
+        "ProductFacts": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "company": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "string"
+                }
+              ]
+            },
+            "stewards": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "role": {
+                      "enum": [
+                        "endorsement",
+                        "curator"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "name",
+                    "role"
+                  ]
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "role": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "name",
+                    "role"
+                  ]
+                }
+              ]
+            },
+            "Licensing": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "license": {
+                      "enum": [
+                        "Apache License 2.0 (Apache-2.0)",
+                        "3-clause BSD license (BSD-3-Clause)",
+                        "2-clause BSD license (BSD-2-Clause)",
+                        "Creative Commons license",
+                        "GNU General Public License (GPL)",
+                        "GNU Lesser General Public License (LGPL)",
+                        "MIT license (MIT)",
+                        "Mozilla Public License 2.0 (MPL-2.0)",
+                        "Common Development and Distribution License 1.0 (CDDL-1.0)",
+                        "Eclipse Public License 2.0 (EPL-2.0)"
+                      ]
+                    },
+                    "terms": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "license",
+                    "terms"
+                  ]
+                }
+              ]
+            },
+            "Usage Terms": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "usage": {
+                      "enum": [
+                         "Trial Use","Upfront Charge","Usage Charge","Maintainence"
+                      ]
+                    },
+                    "terms": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "usage",
+                    "terms"
+                  ]
+                }
+              ]
+            },
+            "technologyType": {
+              "type": "string"
+            },
+            "domain": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "string"
+                }
+              ]
+            },
+            "cybersecurity": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "type": {
+                      "type": "string"
+                    },
+                    "terms": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "type",
+                    "terms"
+                  ]
+                }
+              ]
+            },
+            "customerService": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "service": {
+                      "enum": ["phone","email","listserve"]
+                    },
+                    "terms": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "service",
+                    "terms"
+                  ]
+                }
+              ]
+            },
+            "dataAccess": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "access": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "access"
+                  ]
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "name"
+                  ]
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "name"
+                  ]
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "name"
+                  ]
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "name"
+                  ]
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "name"
+                  ]
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "name"
+                  ]
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "name"
+                  ]
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "name"
+                  ]
+                }
+              ]
+            },
+            "identifyAndAccessManagement": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "name"
+                  ]
+                }
+              ]
+            },
+            "runtimeDependencies": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "name"
+                  ]
+                }
+              ]
+            },
+            "networking": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "url": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "name",
+                    "url"
+                  ]
+                }
+              ]
+            }
+          },
+          "required": [
+            "name",
+            "company",
+            "stewards",
+            "Licensing",
+            "technologyType",
+            "domain",
+            "cybersecurity",
+            "customerService",
+            "dataAccess",
+            "identifyAndAccessManagement",
+            "runtimeDependencies",
+            "networking"
+          ]
+        }
+      },
+      "required": [
+        "uuid",
+        "build",
+        "ProductFacts"
+      ]
+    },
+    "tasks": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "label": {
+              "type": "string"
+            },
+            "options": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "required": [
+            "label",
+            "options"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "label": {
+              "type": "string"
+            },
+            "options": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "required": [
+            "label",
+            "options"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "label": {
+              "type": "string"
+            },
+            "memory_minimum": {
+              "type": "integer"
+            },
+            "memory_maximum": {
+              "type": "integer"
+            },
+            "instances_minimum": {
+              "type": "integer"
+            },
+            "options": {
+              "type": "array",
+              "items": {}
+            },
+            "ports": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "environment": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "key": {
+                      "type": "string"
+                    },
+                    "required": {
+                      "type": "boolean"
+                    },
+                    "description": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "key",
+                    "required",
+                    "description"
+                  ]
+                }
+              ]
+            }
+          },
+          "required": [
+            "label",
+            "memory_minimum",
+            "memory_maximum",
+            "instances_minimum",
+            "options",
+            "ports",
+            "environment"
+          ]
+        }
+      ]
+    }
+  },
+  "required": [
+    "marketplace_url",
+    "product",
+    "tasks"
+  ]
+}
